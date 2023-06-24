@@ -1,5 +1,5 @@
-﻿using static Progam;
-public class Progam
+﻿using static Program;
+public class Program
 {
     public delegate void voidDelegate();
     public delegate void voidDelegateWithParam(string msg);
@@ -9,6 +9,7 @@ public class Progam
     {
         //Delegate use case 1
         voidDelegate voidDelegateObj = ShowMessage;
+        voidDelegateObj += ShowMessage2;
         MyDelegates.ExecuteDelegate(voidDelegateObj);
 
         //Delegate use case 2
@@ -23,6 +24,11 @@ public class Progam
     private static void ShowMessage()
     {
         Console.WriteLine("This is voidDelegate Executed.");
+    }
+
+    private static void ShowMessage2()
+    {
+        Console.WriteLine("This is voidDelegate Executed. 2");
     }
 
     private static void ShowMessageWithParam(string msg)
